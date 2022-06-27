@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 
 # Load dataset
-df = pd.read_csv('possum.csv')
+df = pd.read_csv('possum_data.csv')
 df = pd.DataFrame(df)
 
 # Map non numeric values
