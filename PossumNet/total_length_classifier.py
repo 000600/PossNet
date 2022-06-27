@@ -3,18 +3,13 @@ import tensorflow as tf
 from tensorflow.keras.layers import Dense, BatchNormalization, Dropout
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.callbacks import EarlyStopping
-from tensorflow.keras.optimizers import Adam
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report
-from sklearn.preprocessing import MinMaxScaler
-from sklearn.preprocessing import StandardScaler
-from imblearn.over_sampling import SMOTE
 
 # Load dataset
-df = pd.read_csv('possum_data.csv')
+df = pd.read_csv('possum.csv')
 df = pd.DataFrame(df)
 
 # Map non numeric values
@@ -31,7 +26,7 @@ y = list(df.pop("totlngth"))
 # Remove unnecessary columns from the dataset
 df = df.drop(labels = ["case", "site", "Pop"], axis = 1) # totlngth is removed too since it is a label, not an input
     
-# Add specific parts of the dataset to x and y lists
+# Add dataset to x and y lists
 for row in range(df.shape[0]):
   rows = []
   for point in range(len(df.loc[0])): # Loop through all columns
@@ -44,9 +39,6 @@ x_test, x_val, y_test, y_val = train_test_split(x_test, y_test, test_size = 0.5,
 
 # Get input shape
 input_shape = len(x[0])
-
-# Create Adam optimizer
-opt = Adam(learning_rate = 0.001)
 
 # Create model
 model = Sequential()
@@ -61,10 +53,10 @@ model.add(Dense(4, activation = 'relu'))
 model.add(Dense(3, activation = 'relu'))
 
 # Output layer
-model.add(Dense(1)) # 1 neurons because the model predicts 1 class (total length)
+model.add(Dense(1)) # 1 neuron because the model predicts 1 class (total length)
 
 # Compile model
-model.compile(optimizer = 'sgd', loss = 'mse', metrics = ['accuracy']) # Mean squared error loss function since this is a regression model
+model.compile(optimizer = 'sgd', loss = 'mse', metrics = ['accuracy']) # Mean squared error loss function and stochastic gradient descent optimizer since this is a regression model
 early_stopping = EarlyStopping(min_delta = 0.001, patience = 10, restore_best_weights = True)
 
 # Train model and store training history
