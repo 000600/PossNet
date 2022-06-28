@@ -27,7 +27,7 @@ The dataset can be found at this link: https://www.kaggle.com/datasets/abrambeye
 - Skull width
 - Tail length
 
-It should be noted that some values are missing in the initial dataset in the *age* and *foot length* columns. In this program, these missing values are filled in with the mean of their respective columns; a missing value in the age column would be filled in with the mean of all other age values in the dataset. It should also be noted that all x-values (input values) are scaled with Scikit-Learn's **StandardScaler** before the enter the model during preprocessing.
+It should be noted that some values are marked as *NA* in the initial dataset in the *age* and *foot length* columns. In this program, these missing values are filled in with the mean of their respective columns; a missing value in the age column would be filled in with the mean of all other age values in the dataset. It should also be noted that all x-values (input values) are scaled with Scikit-Learn's **StandardScaler** before the enter the model during preprocessing.
 
 ## Potential Applications
 The neural networks in this project could hypothetically determine the approximate chest, belly, and or total length of a possum. However, these networks are based on inputs that include many other measurements, meaning that if a person were to try and use the networks in this project it would be highly impractical; in order to recieve the predicted values from the networks, the person would have to measure multiple other aspects of the possum, and—if they are measuring all those values—they might as well measure the chest length, belly length, and total length of the possum themselves. The neural networks in this project are rather just practice in a multiple regression problem.
