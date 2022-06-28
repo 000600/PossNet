@@ -16,7 +16,7 @@ The neural networks in this repository determine either (depending on the networ
 > - 4 Hidden layers (each with 5, 4, 3, or 2 neurons and a ReLU activation function)
 > - 1 Output layer (with 1 output neuron and no activation function)
 
-Feel free to further tune the hyperparameters or build upon the either network!
+Note that each file also includes a graph that illustrates the positive difference between the model's predicted value and actual values for each input in the x-test dataset. Feel free to further tune the hyperparameters or build upon the either network!
 
 ## The Dataset
 The dataset can be found at this link: https://www.kaggle.com/datasets/abrambeyer/openintro-possum. Credit for the dataset collection goes to **Daniel Ihenacho**, **Hamza Khan**, **Caius**, and others on *Kaggle*. It describes different aspects of different possums, including:
