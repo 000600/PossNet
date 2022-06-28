@@ -108,8 +108,8 @@ for val in range(len(x_test)): # Loop through test values and have model predict
 index = np.arange(len(error1))
 bar_width = 0.35
 
-bar1 = plt.bar(index, error1, bar_width, label = 'Chest Length Error')
-bar2 = plt.bar(index + bar_width, error2, bar_width, color = 'orange', label = 'Belly Length Error')
+bar1 = plt.bar(index, error1, bar_width, label = 'Chest Length Deviation')
+bar2 = plt.bar(index + bar_width, error2, bar_width, color = 'orange', label = 'Belly Length Deviation')
 
 plt.xlabel('Input Index')
 plt.ylabel('Deviation')
