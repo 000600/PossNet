@@ -58,6 +58,7 @@ model.add(Dense(9, activation = 'relu', input_shape = [input_shape])) # Input la
 model.add(Dense(5, activation = 'relu'))
 model.add(Dense(4, activation = 'relu'))
 model.add(Dense(3, activation = 'relu'))
+model.add(Dense(2, activation = 'relu'))
 
 # Output layer
 model.add(Dense(1)) # 1 neuron because the model predicts 1 class (total length)
@@ -67,7 +68,7 @@ model.compile(optimizer = 'sgd', loss = 'mse', metrics = ['accuracy']) # Mean sq
 early_stopping = EarlyStopping(min_delta = 0.001, patience = 10, restore_best_weights = True)
 
 # Train model and store training history
-epochs = 400
+epochs = 200
 history = model.fit(x_train, y_train, epochs = epochs, validation_data = (x_val, y_val)) # To add callbacks add 'callbacks = [early_stopping]'
 
 # Prediction vs. actual value (change the index to view a different input and output set)
