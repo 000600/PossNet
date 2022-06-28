@@ -63,7 +63,7 @@ model.add(Dense(3, activation = 'relu'))
 model.add(Dense(2)) # 2 neurons because there are 2 outputs (chest length and belly length)
 
 # Compile model
-model.compile(optimizer = 'sgd', loss = 'mse', metrics = ['accuracy']) # Mean squared error loss function and stochastic gradient descent optimizer since this is a regression model
+model.compile(optimizer = 'sgd', loss = 'mse') # Mean squared error loss function and stochastic gradient descent optimizer since this is a regression model
 early_stopping = EarlyStopping(min_delta = 0.001, patience = 10, restore_best_weights = True)
 
 # Train model and store training history
@@ -90,19 +90,7 @@ plt.ylabel('Loss')
 plt.legend()
 plt.show()
 
-# Visualize accuracy and validation accuracy
-accuracy = history_dict['accuracy']
-val_accuracy = history_dict['val_accuracy']
-
-plt.plot(epoch_list, accuracy, label = 'Training Accuracy')
-plt.plot(epoch_list, val_accuracy, label =' Validation Accuracy')
-plt.title('Validation and Training Accuracy Across Epochs')
-plt.xlabel('Epochs')
-plt.ylabel('Accuracy')
-plt.legend()
-plt.show()
-
-# Calculate model's approximate error
+# Calculate model's approximate deviation
 error1 = []
 error2 = []
 
