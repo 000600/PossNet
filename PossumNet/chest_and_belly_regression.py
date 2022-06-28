@@ -67,7 +67,7 @@ model.compile(optimizer = 'sgd', loss = 'mse', metrics = ['accuracy']) # Mean sq
 early_stopping = EarlyStopping(min_delta = 0.001, patience = 10, restore_best_weights = True)
 
 # Train model and store training history
-epochs = 400
+epochs = 200
 history = model.fit(x_train, y_train, epochs = epochs, validation_data = (x_val, y_val)) # To add callbacks add 'callbacks = [early_stopping]'
 
 # Prediction vs. actual value (change the index to view a different input and output set)
@@ -105,6 +105,7 @@ plt.show()
 # Calculate model's approximate error
 error1 = []
 error2 = []
+
 for val in range(len(x_test)): # Loop through test values and have model predict on those test values
   # Determine the difference between the model's predicted labels and actual labels
   error_val1 = abs(model.predict([x_test[val]])[0][0] - y_test[val][0])
