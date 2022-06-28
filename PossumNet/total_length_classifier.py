@@ -7,6 +7,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
 
 # Load dataset
 df = pd.read_csv('possum_data.csv')
@@ -19,12 +20,18 @@ df.sex = df.sex.map({'f': 1, 'm': 0})
 df['age'] = df['age'].fillna(df.age.mean())
 df['footlgth'] = df['footlgth'].fillna(df.footlgth.mean())
 
+# Remove unnecessary columns from the dataset
+df = df.drop(labels = ["case", "site", "Pop"], axis = 1) # These columns will not assist the model in learning how to predict the total length of a possum
+
+# Scale x values
+scaler = StandardScaler()
+for col in df.columns:
+  if col != 'totlngth':
+    df[col] = scaler.fit_transform(df[[col]])
+
 # Initialize x and y lists
 x = []
 y = list(df.pop("totlngth"))
-
-# Remove unnecessary columns from the dataset
-df = df.drop(labels = ["case", "site", "Pop"], axis = 1) # totlngth is removed too since it is a label, not an input
     
 # Add dataset to x and y lists
 for row in range(df.shape[0]):
