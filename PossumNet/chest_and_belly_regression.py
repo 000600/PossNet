@@ -7,6 +7,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
 
 # Load dataset
 df = pd.read_csv('possum_data.csv')
@@ -20,6 +21,12 @@ df.sex = df.sex.map({'f': 1, 'm': 0})
 # Fill in missing values
 df['age'] = df['age'].fillna(df.age.mean())
 df['footlgth'] = df['footlgth'].fillna(df.footlgth.mean())
+
+# Scale x values
+scaler = StandardScaler()
+for col in df.columns:
+  if col != 'chest' and col != 'belly':
+    df[col] = scaler.fit_transform(df[[col]])
 
 # Initialize x and y lists
 x = []
