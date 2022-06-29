@@ -18,6 +18,9 @@ The neural networks in this repository determine either (depending on the networ
 
 Note that each file also includes a graph that illustrates the positive difference between the model's predicted value and actual values for each input in the x-test dataset. Feel free to further tune the hyperparameters or build upon the either network!
 
+## XGBoost Regressor
+An XGBoost Regressor file is also included to compare the neural networks to the regressor. The XGBoost Regressor has 50000 estimators and a learning rate of 0.001. The number of estimators is high but, when coupled with early stopping (as it is in the file) the number of estimators is not too high. However, the high number of estimators will increase run time.
+
 ## The Dataset
 The dataset can be found at this link: https://www.kaggle.com/datasets/abrambeyer/openintro-possum. Credit for the dataset collection goes to **Daniel Ihenacho**, **Hamza Khan**, **Caius**, and others on *Kaggle*. It describes different aspects of different possums, including:
 - Gender
