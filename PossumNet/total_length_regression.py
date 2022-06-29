@@ -64,7 +64,7 @@ model.add(Dense(2, activation = 'relu'))
 model.add(Dense(1)) # 1 neuron because the model predicts 1 class (total length)
 
 # Compile model
-model.compile(optimizer = 'sgd', loss = 'mae') # Mean absolute error loss function and stochastic gradient descent optimizer since this is a regression model
+model.compile(optimizer = 'sgd', loss = 'mse') # Mean squared error loss function and stochastic gradient descent optimizer since this is a regression model
 early_stopping = EarlyStopping(min_delta = 0.001, patience = 10, restore_best_weights = True)
 
 # Train model and store training history
