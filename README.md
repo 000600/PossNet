@@ -19,7 +19,7 @@ The neural networks in this repository determine either (depending on the networ
 Note that each file also includes a graph that illustrates the positive difference between the model's predicted values and actual values for each input in the x-test dataset. Feel free to further tune the hyperparameters or build upon the either network!
 
 ## XGBoost Regressor
-An XGBoost Regressor model is also included in the **xgb_total_length_regression.py** file to compare the neural networks to the regressor. The XGBoost Regressor has 50000 estimators and a learning rate of 0.001, coupled with early stopping based on validation sets. It should be noted that the high number of estimators will increase run time, so if you do not wish to invest the time or computer power in training a large scale XGBoost model, 4000-5000 estimators should also work fine (50000 estimators just achieves a marginally better test accuracy). 
+An XGBoost Regressor model is also included in the **xgb_possum_regression.py** file to compare the neural networks to the regressor. The XGBoost Regressor has 50000 estimators, a learning rate of 0.001, and early stopping based on validation sets. The regressor predicts the total length of a possum based on the same inputs as the model in the **total_length_regression.py** file. It should be noted that the high number of estimators will increase run time, so if you do not wish to invest the time or computer power in training a large scale XGBoost model, 4000-5000 estimators should also work fine (50000 estimators just achieves a marginally better test accuracy). 
 
 Like the neural networks, the **xgb_total_length_regression.py** file also includes a graph that depicts the positive difference between the model's predicted values and the actual values for each input in the x-test dataset.
 
@@ -38,8 +38,10 @@ It should be noted that some values are marked as *NA* in the initial dataset in
 The neural networks in this project could hypothetically determine the approximate chest, belly, and or total length of a possum. However, these networks are based on inputs that include many other measurements, meaning that if a person were to try and use the networks in this project it would be highly impractical; in order to recieve the predicted values from the networks, the person would have to measure multiple other aspects of the possum, and—if they are measuring all those values—they might as well measure the chest length, belly length, and total length of the possum themselves. The neural networks in this project are rather just practice in a multiple regression problem.
 
 ## Libraries
-These neural networks were created with the help of the Tensorflow and Scikit-Learn libraries.
+These neural networks and XGBoost Regressor were created with the help of the Tensorflow, Scikit-Learn, and XGBoost libraries.
 - Tensorflow's Website: https://www.tensorflow.org/
 - Tensorflow Installation Instructions: https://www.tensorflow.org/install
 - Scikit-Learn's Website: https://scikit-learn.org/stable/
 - Scikit-Learn's Installation Instructions: https://scikit-learn.org/stable/install.html
+- XGBoost's Website: https://xgboost.readthedocs.io/en/stable/#
+- XGBoost's Installation Instructions: https://xgboost.readthedocs.io/en/stable/install.html
