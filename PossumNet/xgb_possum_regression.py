@@ -3,7 +3,7 @@ import xgboost
 from xgboost import XGBRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import mean_absolute_error, classification_report, mean_squared_error
+from sklearn.metrics import mean_squared_error
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -47,7 +47,7 @@ x_test, x_val, y_test, y_val = train_test_split(x_test, y_test, test_size = 0.5,
 model = XGBRegressor(n_estimators = 50000, learning_rate = 0.001)
 model.fit(x_train, y_train, early_stopping_rounds = 5, eval_set = [(x_val, y_val)], verbose = 1) # Predicts the total length of a possum
 
-# View mean absolute error of the model
+# View mean squared error of the model
 predictions = model.predict(x_test)
 mse = mean_squared_error(predictions, y_test)
 print("\nMean Squared Error (MSE):", mse)
