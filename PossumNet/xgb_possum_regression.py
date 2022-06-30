@@ -45,15 +45,12 @@ x_test, x_val, y_test, y_val = train_test_split(x_test, y_test, test_size = 0.5,
 
 # Create and train model
 model = XGBRegressor(n_estimators = 50000, learning_rate = 0.001)
-model.fit(x_train, y_train, early_stopping_rounds = 5, eval_set = [(x_val, y_val)], verbose = 1)
+model.fit(x_train, y_train, early_stopping_rounds = 5, eval_set = [(x_val, y_val)], verbose = 1) # Predicts the total length of a possum
 
 # View mean absolute error of the model
 predictions = model.predict(x_test)
 mse = mean_squared_error(predictions, y_test)
 print("\nMean Squared Error (MSE):", mse)
-
-# View test accuracy
-print('Test accuracy:', model.score(x_test, y_test))
 
 # Prediction vs. actual value (change the index to view a different input and output set)
 index = 0
