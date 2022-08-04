@@ -76,7 +76,7 @@ prediction = model.predict([x_test[index]])
 print(f"\nModel's Prediction on a Sample Input: {prediction}")
 print(f"Actual Label on the Same Input: {y_test[index]}")
 
-# Visualize  loss and validation loss
+# Visualize loss and validation loss
 history_dict = history.history
 loss = history_dict['loss']
 val_loss = history_dict['val_loss']
