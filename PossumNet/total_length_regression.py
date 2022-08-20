@@ -81,10 +81,9 @@ print(f"Actual Label on the Same Input: {y_test[index]}")
 history_dict = history.history
 loss = history_dict['loss']
 val_loss = history_dict['val_loss']
-epoch_list = [i for i in range(epochs)]
 
-plt.plot(epoch_list, loss, label = 'Loss')
-plt.plot(epoch_list, val_loss, label = 'Validation Loss')
+plt.plot(loss, label = 'Loss')
+plt.plot(val_loss, label = 'Validation Loss')
 plt.title('Validation and Training Loss Across Epochs')
 plt.xlabel('Epochs')
 plt.ylabel('Loss')
