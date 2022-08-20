@@ -80,10 +80,9 @@ print(f"Actual Label on the Same Input: {y_test[index]}")
 history_dict = history.history
 loss = history_dict['loss']
 val_loss = history_dict['val_loss']
-epoch_list = [i for i in range(epochs)]
 
-plt.plot(epoch_list, loss, label = 'Loss')
-plt.plot(epoch_list, val_loss, label = 'Validation Loss')
+plt.plot(loss, label = 'Loss')
+plt.plot(val_loss, label = 'Validation Loss')
 plt.title('Validation and Training Loss Across Epochs')
 plt.xlabel('Epochs')
 plt.ylabel('Loss')
@@ -102,7 +101,6 @@ for val in range(len(x_test)): # Loop through test values and have model predict
   # Store difference values in a list for plotting
   error1.append(float(error_val1))
   error2.append(float(error_val2))
-
 
 # Create bar graph to illustrate the deviation between the model's predicted values and actual values
 index = np.arange(len(error1))
