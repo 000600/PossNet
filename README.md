@@ -8,7 +8,7 @@ The neural networks in this repository determine either (depending on the networ
   - 1 Input layer (with 9 input neurons and a ReLU activation function)
   - 3 Hidden layers (each with 5, 4, or 3 neurons and a ReLU activation function)
   - 1 Output layer (with 2 output neurons and no activation function)
-     * There are two output neurons because the model is predicting two values: the chest length of the possum, and the belly length of the possum
+     * There are two output neurons because the model is predicting two values: the chest length of the possum and the belly length of the possum
 
 2. The second model, found in the **total_length_regression.py** file, will predict the total length of a possum based on essentially the same input as the previous model; the only change is that the x-values in this model's dataset include chest and belly length, while the x-values in the other model don't. Since the model is a regression model, it—like the model in **chest_and_belly_length_regression.py**—uses a standard stochastic gradient descent optimizer, a mean squared error loss function, and no output activation function. The model contains an architecture consisting of: 
   - 1 Batch Normalization layer
