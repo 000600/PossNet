@@ -1,4 +1,4 @@
- # PossumNet
+# PossumNet
 
 ## The Neural Networks
 The neural networks in this repository determine either (depending on the network) the total length of a possum or the chest and stomach length of a possum.
